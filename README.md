@@ -47,9 +47,9 @@ Generate an image using OpenAI's DALL-E model.
 ```json
 {
   "prompt": "A description of the image to generate",
-  "size": "256x256", // Optional, default is "256x256"
-  "model": "dall-e-2", // Optional, default is "dall-e-2"
-  "quality": "standard" // Optional, default is "standard"
+  "size": "1024x1024", // Optional, default is "256x256"
+  "model": "dall-e-3", // Optional, default is "dall-e-2"
+  "quality": "hd" // Optional, default is "standard"
 }
 ```
 #### Response
