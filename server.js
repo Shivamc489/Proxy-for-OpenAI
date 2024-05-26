@@ -1,16 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const { Configuration, OpenAIApi } = require('openai');
+const fetch = require('node-fetch');
 
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type'],
-}));
-
+app.use(cors());
 app.use(express.json());
 
 const configuration = new Configuration({
@@ -52,6 +48,7 @@ app.get('/proxy', async (req, res) => {
     const buffer = await response.arrayBuffer();
     const contentType = response.headers.get('content-type');
     res.set('Content-Type', contentType);
+    res.set('Access-Control-Allow-Origin', '*');
     res.send(Buffer.from(buffer));
   } catch (error) {
     res.status(500).send('Error fetching the image');
