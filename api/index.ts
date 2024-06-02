@@ -20,7 +20,7 @@ app.get('/health', (req: Request, res: Response) => {
 });
 
 app.post('/generate-image', async (req: Request, res: Response) => {
-  const { prompt, size = "256x256", model = "dall-e-2", quality = "standard", image_provider = "picsum" } = req.body;
+  const { prompt, size = "256x256", model = "dall-e-2", quality = "standard", image_provider = process.env.IMAGE_PROVIDER || "picsum" } = req.body;
 
   if (!prompt) {
     return res.status(400).send('Prompt is required');
