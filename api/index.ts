@@ -45,7 +45,7 @@ app.post('/generate-image', async (req: Request, res: Response) => {
           key: pixabayApiKey,
           q: prompt,
           image_type: 'vector',
-          per_page: 20,
+          per_page: 200,
         },
       });
       const pixabayImages = pixabayResponse.data.hits;
